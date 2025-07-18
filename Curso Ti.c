@@ -111,13 +111,16 @@ int main()
 {
 	 int opcao=0; //definindo as opções que o usuario vai escolher
 	 int laco=1;
-	 char senhadigitada[10]="a";
+	 char senhadigitada[]="a";
+	 int comparacao;
 	 
 	 printf("### cartório da EBAC ###\n\n");
 	 printf("Login de administrador!\n\nDigite sua seha:");
-	 scanf("%s, senhadigitada");
+	 scanf("%s", senhadigitada);
 	 
-	 if(senhadigitada[10]=="admin")
+	 comparacao = strcmp(senhadigitada, "admin");
+	 
+	 if(comparacao == 0)
 	 {
 	 
 	 
@@ -132,7 +135,8 @@ int main()
 	     printf("Escolha a opção desejada no menu:\n\n");
 	     printf("\t1 - Registrar nomes\n");
 	     printf("\t2 - Consultar nomes\n");
-	     printf("\t3 - Deletar nomes\n\n"); 
+	     printf("\t3 - Deletar nomes\n\n");
+		 printf("\t4 - Sair do menu\n\n"); 
 	     printf("opção:"); //fim do menu
 	 
 	     scanf("%d", &opcao); // armazenando a escolha do usuario 
@@ -151,6 +155,11 @@ int main()
 	    
 	      case 3:
 	      deletar();
+		  break;
+		  
+		  case 4:
+		  printf("Obrigado por utilizar o sistema\n");
+		  return 0;
 		  break;
 	    
 	      default:
